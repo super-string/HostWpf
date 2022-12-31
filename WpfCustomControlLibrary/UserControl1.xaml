@@ -42,6 +42,9 @@
             <ComboBoxItem Content="あいてむ"/>
         </ComboBox>
         <ToggleButton Content="ToggleButton" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="105,65,0,0">
+            <ToggleButton.Effect>
+                <DropShadowEffect/>
+            </ToggleButton.Effect>
             <ToggleButton.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF10EEFD"/>
@@ -51,16 +54,15 @@
                 </LinearGradientBrush>
             </ToggleButton.Background>
         </ToggleButton>
-        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,115,0,0" Width="80"/>
+        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,115,0,0" Width="118" Height="28">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
         <local:WpfToggleButton Content="WpfToggleButton" HorizontalAlignment="Left" Margin="93,160,0,0" VerticalAlignment="Top" Height="55" RenderTransformOrigin="0.5,0.5" Width="87">
-            <local:WpfToggleButton.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleX="-1" ScaleY="-1"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </local:WpfToggleButton.RenderTransform>
+            <local:WpfToggleButton.Effect>
+                <DropShadowEffect/>
+            </local:WpfToggleButton.Effect>
         </local:WpfToggleButton>
     </Grid>
 </UserControl>

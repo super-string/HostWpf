@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WpfControlWrapper\WpfControlWrapper.csproj" />
     <ProjectReference Include="..\WpfCustomControlLibrary\WpfCustomControlLibrary.csproj" />
   </ItemGroup>
 
