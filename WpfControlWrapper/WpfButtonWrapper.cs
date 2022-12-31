@@ -12,7 +12,7 @@
         protected override void InitializeHost()
         {
             SuspendLayout();
-            AddToHost(_element);
+            RegisterContentControl(_element);
             _element.Click += _element_Click;
             ResumeLayout(true);
         }

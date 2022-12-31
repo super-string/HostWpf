@@ -31,7 +31,7 @@ namespace WpfControlWrapper
             _element = new WpfToggleButton();
             _element.Checked += _element_Checked;
             _element.Unchecked += _element_Checked;
-            AddToHost(_element);
+            RegisterContentControl(_element);
             ResumeLayout(true);
         }
     }

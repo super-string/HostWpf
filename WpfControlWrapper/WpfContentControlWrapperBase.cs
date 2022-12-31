@@ -1,54 +1,24 @@
 ﻿using System.ComponentModel;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms.Integration;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
+using System.Xml.Linq;
 
 namespace WpfControlWrapper
 {
     [Serializable]
-    public abstract class WpfContentControlWrapperBase : System.Windows.Forms.Control
+    public abstract class WpfContentControlWrapperBase : WpfFrameworkElementWrapperBase
     {
         private ContentControl _element;
         internal ContentControl Core => _element;
-        protected ElementHost Host { get; }
-
-        private EffectType _effect = EffectType.None;
-        [Category("WPF.UI")]
-        public EffectType Effect
-        {
-            get => _effect;
-            set
-            {
-                _effect = value;
-                UIElementOperator.Effect(_effect, _element);
-            }
-        }
-
-        private TransformInfo _transformInfo;
-        [Category("WPF.UI")]
-        public TransformInfo RotateTransform
-        {
-            get => _transformInfo;
-            set
-            {
-                _transformInfo = value ?? new TransformInfo();
-                UIElementOperator.Transform(_transformInfo, _element);
-            }
-        }
-
+        
         [Category("WPF.UI")]
         public string ContentText
         {
             get => _element.Content as string; set => _element.Content = value;
         }
 
-        [Category("WPF.UI")]
-        public System.Drawing.Size ElementSize
-        {
-            get => new System.Drawing.Size((int)_element.Width, (int)_element.Height);
-        }
 
         [Category("WPF.UI")]
         public Padding ElementPadding
@@ -56,99 +26,32 @@ namespace WpfControlWrapper
             get => new Padding((int)_element.Padding.Left, (int)_element.Padding.Top, (int)_element.Padding.Right, (int)_element.Padding.Bottom);
         }
 
+        
         [Category("WPF.UI")]
-        public System.Windows.Forms.HorizontalAlignment HorizontalAlignment
+        public System.Windows.Media.Brush Background
         {
-            get => (System.Windows.Forms.HorizontalAlignment)_element.HorizontalAlignment;
-            set => _element.HorizontalAlignment = (System.Windows.HorizontalAlignment)value;
-        }
-
-        [Category("WPF.UI")]
-        public System.Windows.VerticalAlignment VerticalAlignment
-        {
-            get => _element.VerticalAlignment;
-            set => _element.VerticalAlignment = value;
-        }
-
-        [Category("WPF.Host")]
-        public System.Drawing.Size HostSize
-        {
-            get => new System.Drawing.Size(Host.Width, Host.Height);
-            set
-            {
-                Host.Width = value.Width;
-                Host.Height = value.Height;
-            }
-        }
-
-        [Category("WPF.Host")]
-        public DockStyle HostDock
-        {
-            get => Host.Dock;
-            set => Host.Dock = value;
+            get => _element.Background;
+            set => _element.Background = value;
         }
 
         protected WpfContentControlWrapperBase()
         {
-            Host = new ElementHost();
             InitializeHost();
         }
 
         protected abstract void InitializeHost();
 
-        protected void AddToHost(ContentControl element)
+        protected void RegisterContentControl(ContentControl element)
         {
             _element = element;
-            _element.Background = new LinearGradientBrush(
-                            System.Windows.Media.Color.FromArgb(0xFF, 0x37, 0x6B, 0xBE),
-                            System.Windows.Media.Color.FromArgb(0xFF, 0xD5, 0xF2, 0xB8),
-                            new System.Windows.Point(0.5, 0),
-                            new System.Windows.Point(0.5, 1)
-                            );
-            Host.Location = new System.Drawing.Point(0, 0);
-            Host.Dock = DockStyle.Fill;
-            Host.Child = _element;
-
-            Controls.Add(Host);
+            RegisterFraeworkControl(element);
         }
     }
     [Serializable]
-    public abstract class WpfItemsControlWrapperBase : System.Windows.Forms.Control
+    public abstract class WpfItemsControlWrapperBase : WpfFrameworkElementWrapperBase
     {
         private ItemsControl _element;
         internal ItemsControl Core => _element;
-
-        protected ElementHost Host { get; }
-
-        private EffectType _effect = EffectType.None;
-        [Category("WPF.UI")]
-        public EffectType Effect
-        {
-            get => _effect;
-            set
-            {
-                _effect = value;
-                UIElementOperator.Effect(_effect, _element);
-            }
-        }
-
-        private TransformInfo _transformInfo;
-        [Category("WPF.UI")]
-        public TransformInfo RotateTransform
-        {
-            get => _transformInfo;
-            set
-            {
-                _transformInfo = value ?? new TransformInfo();
-                UIElementOperator.Transform(_transformInfo, _element);
-            }
-        }
-
-        [Category("WPF.UI")]
-        public System.Drawing.Size ElementSize
-        {
-            get => new System.Drawing.Size((int)_element.Width, (int)_element.Height);
-        }
 
         [Category("WPF.UI")]
         public Padding ElementPadding
@@ -156,53 +59,17 @@ namespace WpfControlWrapper
             get => new Padding((int)_element.Padding.Left, (int)_element.Padding.Top, (int)_element.Padding.Right, (int)_element.Padding.Bottom);
         }
 
-        [Category("WPF.UI")]
-        public System.Windows.Forms.HorizontalAlignment HorizontalAlignment
-        {
-            get => (System.Windows.Forms.HorizontalAlignment)_element.HorizontalAlignment;
-            set => _element.HorizontalAlignment = (System.Windows.HorizontalAlignment)value;
-        }
-
-        [Category("WPF.Host")]
-        public System.Drawing.Size HostSize
-        {
-            get => new System.Drawing.Size(Host.Width, Host.Height);
-            set
-            {
-                Host.Width = value.Width;
-                Host.Height = value.Height;
-            }
-        }
-
-        [Category("WPF.Host")]
-        public DockStyle HostDock
-        {
-            get => Host.Dock;
-            set => Host.Dock = value;
-        }
-
         protected WpfItemsControlWrapperBase()
         {
-            Host = new ElementHost();
             InitializeHost();
         }
 
         protected abstract void InitializeHost();
 
-        protected void AddToHost(ItemsControl element)
+        protected void RegisterItemsControl(ItemsControl element)
         {
             _element = element;
-            _element.Background = new LinearGradientBrush(
-                            System.Windows.Media.Color.FromArgb(0xFF, 0x37, 0x6B, 0xBE),
-                            System.Windows.Media.Color.FromArgb(0xFF, 0xD5, 0xF2, 0xB8),
-                            new System.Windows.Point(0.5, 0),
-                            new System.Windows.Point(0.5, 1)
-                            );
-            Host.Location = new System.Drawing.Point(0, 0);
-            Host.Dock = DockStyle.Fill;
-            Host.Child = _element;
-
-            Controls.Add(Host);
+            RegisterFraeworkControl(element);
         }
     }
 
@@ -221,7 +88,7 @@ namespace WpfControlWrapper
         protected override void InitializeHost()
         {
             SuspendLayout();
-            AddToHost(_label);
+            RegisterContentControl(_label);
             ResumeLayout(true);
         }
     }
@@ -250,7 +117,7 @@ namespace WpfControlWrapper
         {
             SuspendLayout();
             _comboBox = new System.Windows.Controls.ComboBox();
-            AddToHost(_comboBox);
+            RegisterItemsControl(_comboBox);
             ResumeLayout(true);
         }
     }

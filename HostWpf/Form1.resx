@@ -70,4 +70,16 @@
   <data name="wpfComboBoxWrapper1.RotateTransform" type="WpfControlWrapper.TransformInfo, WpfControlWrapper">
     <value>0, 0, 0</value>
   </data>
+  <data name="wpfToggleButtonWrapper1.RotateTransform" type="WpfControlWrapper.TransformInfo, WpfControlWrapper">
+    <value>0, 0, 0</value>
+  </data>
+  <data name="wpfToggleButtonWrapper2.RotateTransform" type="WpfControlWrapper.TransformInfo, WpfControlWrapper">
+    <value>0, 0, 0</value>
+  </data>
+  <data name="wpfToggleButtonWrapper3.RotateTransform" type="WpfControlWrapper.TransformInfo, WpfControlWrapper">
+    <value>0, 0, 0</value>
+  </data>
+  <data name="wpfLabel2.RotateTransform" type="WpfControlWrapper.TransformInfo, WpfControlWrapper">
+    <value>0, 0, 0</value>
+  </data>
 </root>
