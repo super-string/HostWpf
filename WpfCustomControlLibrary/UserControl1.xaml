@@ -51,5 +51,16 @@
                 </LinearGradientBrush>
             </ToggleButton.Background>
         </ToggleButton>
+        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,115,0,0" Width="80"/>
+        <local:WpfToggleButton Content="WpfToggleButton" HorizontalAlignment="Left" Margin="93,160,0,0" VerticalAlignment="Top" Height="55" RenderTransformOrigin="0.5,0.5" Width="87">
+            <local:WpfToggleButton.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1" ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </local:WpfToggleButton.RenderTransform>
+        </local:WpfToggleButton>
     </Grid>
 </UserControl>
