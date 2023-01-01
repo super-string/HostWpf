@@ -65,9 +65,19 @@
     <value>0, 0, 0</value>
   </data>
   <data name="wpfButtonWrapper1.RotateTransform" type="WpfControlWrapper.TransformInfo, WpfControlWrapper">
-    <value>0.5, 0.5, 90</value>
+    <value>0.5, 0.5, 45</value>
+  </data>
+  <assembly alias="WindowsBase" name="WindowsBase, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+  <data name="linearGradientBrush1.EndPoint" type="System.Windows.Point, WindowsBase">
+    <value>0,1</value>
+  </data>
+  <data name="linearGradientBrush1.StartPoint" type="System.Windows.Point, WindowsBase">
+    <value>0,0</value>
   </data>
   <data name="wpfComboBoxWrapper1.RotateTransform" type="WpfControlWrapper.TransformInfo, WpfControlWrapper">
+    <value>0, 0, 0</value>
+  </data>
+  <data name="wpfLabel1.RotateTransform" type="WpfControlWrapper.TransformInfo, WpfControlWrapper">
     <value>0, 0, 0</value>
   </data>
   <data name="wpfToggleButtonWrapper1.RotateTransform" type="WpfControlWrapper.TransformInfo, WpfControlWrapper">

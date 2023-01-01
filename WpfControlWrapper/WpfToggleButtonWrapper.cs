@@ -27,12 +27,10 @@ namespace WpfControlWrapper
 
         protected override void InitializeHost()
         {
-            SuspendLayout();
             _element = new WpfToggleButton();
             _element.Checked += _element_Checked;
             _element.Unchecked += _element_Checked;
             RegisterContentControl(_element);
-            ResumeLayout(true);
         }
     }
 }

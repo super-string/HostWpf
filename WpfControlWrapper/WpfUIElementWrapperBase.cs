@@ -54,7 +54,7 @@ namespace WpfControlWrapper
 
         protected void RegisterUIElement(UIElement element)
         {
-            _element= element;
+            _element = element;
             Host.Child = _element;
         }
 
@@ -64,7 +64,12 @@ namespace WpfControlWrapper
             Host.Location = new System.Drawing.Point(0, 0);
             Host.Dock = DockStyle.Fill;
 
+            SuspendLayout();
             Controls.Add(Host);
+
+            InitializeHost();
+            ResumeLayout();
         }
+        protected abstract void InitializeHost();
     }
 }

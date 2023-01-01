@@ -9,10 +9,10 @@ namespace WpfControlWrapper
         private FrameworkElement _element;
 
         [Category("WPF.UI")]
-        public System.Windows.Forms.HorizontalAlignment HorizontalAlignment
+        public System.Windows.HorizontalAlignment HorizontalAlignment
         {
-            get => (System.Windows.Forms.HorizontalAlignment)_element.HorizontalAlignment;
-            set => _element.HorizontalAlignment = (System.Windows.HorizontalAlignment)value;
+            get => _element.HorizontalAlignment;
+            set => _element.HorizontalAlignment = value;
         }
 
         [Category("WPF.UI")]
@@ -23,10 +23,9 @@ namespace WpfControlWrapper
         }
 
         [Category("WPF.UI")]
-        public System.Drawing.Size ElementSize
-        {
-            get => new System.Drawing.Size((int)_element.Width, (int)_element.Height);
-        }
+        public double ElementWidth { get => _element.Width; set => _element.Width = value; }
+        [Category("WPF.UI")]
+        public double ElementHeight { get => _element.Height; set => _element.Height = value; }
 
         protected void RegisterFraeworkControl(FrameworkElement element)
         {
