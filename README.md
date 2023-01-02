@@ -1,6 +1,6 @@
 # HostWpf
 WinFormにWPFコントロールを配置してリッチに見せる実験
-![hostwpf](https://user-images.githubusercontent.com/53370553/210168115-837b8103-0012-460b-afe5-2f8508613652.png)
+![hostWpfAnime](https://user-images.githubusercontent.com/53370553/210244442-4ec79f74-0e0a-4e90-a295-9fe02bd10fd6.gif)
 
 ## 作成環境
 - VS2022
@@ -13,6 +13,7 @@ WinFormにWPFコントロールを配置してリッチに見せる実験
 - 回転
 - テキスト折り返し
 - コンボボックス内にボタン
+- アニメーション(透過率の変化)
 
 ## やりたいこと
 - 回転をもっと美しくやりたい。が、そこまで需要なさそうなので優先度低
