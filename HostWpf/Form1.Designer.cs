@@ -98,6 +98,7 @@
             this.wpfButtonWrapper3.Text = "wpfButtonWrapper3";
             this.wpfButtonWrapper3.TextWrapping = false;
             this.wpfButtonWrapper3.VerticalAlignment = System.Windows.VerticalAlignment.Stretch;
+            this.wpfButtonWrapper3.Click += new System.EventHandler<WpfControlWrapper.WpfUiElementEventArgs>(this.wpfButtonWrapper3_Click);
             // 
             // wpfButtonWrapper1
             // 

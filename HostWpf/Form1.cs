@@ -81,5 +81,10 @@ namespace HostWpf
         private void wpfLabel1_Click(object sender, EventArgs e)
         {
         }
+
+        private void wpfButtonWrapper3_Click(object sender, WpfUiElementEventArgs e)
+        {
+            wpfButtonWrapper3.Animation();
+        }
     }
 }
